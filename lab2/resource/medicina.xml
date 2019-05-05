@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<patients>
+	<patient name="vlad" secondName="petrenko" surname="kilov" address="nezavisimosti 16" DOB="13.03.2001" DER="30.03.2019" medicName="vladislav" medicSecondName="voronin" medicSurname="olegovich" resume="zdorov">
+	</patient>
+	<patient name="karina" secondName="ivanova" surname="lavnikovich" address="gikalo 2" DOB="11.10.2002" DER="19.03.2019" medicName="vladislav" medicSecondName="voronin" medicSurname="olegovich" resume="bolen">
+	</patient>
+	<patient name="oleg" secondName="kuzev" surname="bovarskiy" address="ukrainki 6" DOB="06.01.1999" DER="02.04.2019" medicName="kristina" medicSecondName="tilova" medicSurname="akil" resume="zdorov">
+	</patient>
+</patients>
