@@ -8,15 +8,9 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 public class Main {
 
-
-
-
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-
-
 
         JButton addButton = new JButton("добавить");
         JButton findButton = new JButton("найти");
@@ -29,6 +23,7 @@ public class Main {
 
         JButton saveButton = new JButton("сохранить");
         JButton uploadButton = new JButton("загрузить");
+        JComboBox colStrok = new JComboBox();
 
         JMenuBar menuBar = new JMenuBar();
         JMenu menu1 = new JMenu("Файл");
@@ -38,28 +33,12 @@ public class Main {
         JMenuItem saveMenuItem = new JMenuItem("сохранить");
         JMenuItem uploadMenuItem = new JMenuItem("загрузить");
 
-        String[] columnNames = {
-                "ФИО пациента",
-                "Адрес прописки",
-                "Дата рождения",
-                "Дата приёма",
-                "ФИО врача",
-                "Заключение"
-        };
-        String[][] data = {
-        };
-
-        JTable table = new JTable(data, columnNames);
-     //   DefaultTableModel model = (DefaultTableModel) table.getModel();
-
-        SAXExample app = new SAXExample();
-        app.getPacients();
-
-
+        JTable table = new JTable(0,0);
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
 
         JFrame container = new JFrame() {};
         container.setVisible(true);
-        container.setBounds(150, 10, 1000, 300);
+        container.setBounds(100, 10, 1200, 330);
         container.setJMenuBar(menuBar);
         container.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -77,46 +56,60 @@ public class Main {
                         table.getPreferredScrollableViewportSize().width,
                         10 * table.getRowHeight()
                 ));
- /*       model.addColumn("ФИО пациента");
+        model.addColumn("ФИО пациента");
         model.addColumn("Адрес прописки");
         model.addColumn("Дата рождения");
         model.addColumn("Дата приёма");
         model.addColumn("ФИО врача");
         model.addColumn("Заключение");
-*/
-//        model.addRow(data);
-/*
-        ArrayList<Hospital> pacientArrayList = new SAXExample().getPacients();
-        System.out.println(pacientArrayList);
-*/
+        table.getColumnModel().getColumn(0).setPreferredWidth(80);
+
+        ArrayList<Pacient> pacientArrayList = new SAXExample().getPacients();
+        ArrayList<Medic> medicArrayList = new SAXExample().getMedics();
+
+
+        for (Medic medic : medicArrayList) {
+            for (Pacient pacient : pacientArrayList) {
+                    model.addRow(new Object[]{pacient.getFullName(), pacient.getAddress(), pacient.getDOB(), pacient.getDER(),medic.getMedicFullName(), pacient.getResume()});
+            }
+        }
+
+
         container.add(scrollPane, BorderLayout.NORTH);
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BorderLayout());
 
         JPanel leftPanel = new JPanel();
-        leftPanel.setLayout(new FlowLayout());
         leftPanel.add(addButton);
         leftPanel.add(findButton);
         leftPanel.add(deleteButton);
         buttonPanel.add(leftPanel, BorderLayout.WEST);
 
         JPanel rightPanel = new JPanel();
-        leftPanel.setLayout(new FlowLayout());
         rightPanel.add(firstPageButton);
         rightPanel.add(backButton);
         rightPanel.add(forwardButton);
         rightPanel.add(lastPageButton);
-        buttonPanel.add(rightPanel, BorderLayout.EAST);
+        buttonPanel.add(rightPanel);
 
         JPanel centerPanel = new JPanel();
-        centerPanel.setLayout(new FlowLayout());
         centerPanel.add(uploadButton);
         centerPanel.add(saveButton);
-        buttonPanel.add(centerPanel);
+        buttonPanel.add(centerPanel, BorderLayout.EAST);
 
+        JPanel upPanel = new JPanel();
+        // сделать нормальые странички
+        JPanel uprightPanel = new JPanel();
+        uprightPanel.add(new JLabel(" страница "));
+        uprightPanel.add(new JLabel("1"));
+        uprightPanel.add(new JLabel(" из "));
+        uprightPanel.add(new JLabel("5"));
+        JPanel upLeftPanel = new JPanel();
+        upLeftPanel.add(new Label("строк в таблице:"));
+        upLeftPanel.add(colStrok);
+        upPanel.add(upLeftPanel, BorderLayout.WEST);
+        upPanel.add(uprightPanel, BorderLayout.EAST);
+        buttonPanel.add(upPanel, BorderLayout.NORTH);
         container.add(buttonPanel, BorderLayout.SOUTH);
-
     }
-
-
 }
