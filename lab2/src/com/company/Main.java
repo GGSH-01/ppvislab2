@@ -6,6 +6,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
 import java.io.IOException;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 public class Main {
@@ -32,6 +33,8 @@ public class Main {
         JMenuItem deleteMenuItem = new JMenuItem("удалить пациента");
         JMenuItem saveMenuItem = new JMenuItem("сохранить");
         JMenuItem uploadMenuItem = new JMenuItem("загрузить");
+
+        JDialog addDialog = new JDialog();
 
         JTable table = new JTable(0,0);
         DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -81,6 +84,7 @@ public class Main {
 
         JPanel leftPanel = new JPanel();
         leftPanel.add(addButton);
+        addButton.addActionListener(new addButtonEvent());
         leftPanel.add(findButton);
         leftPanel.add(deleteButton);
         buttonPanel.add(leftPanel, BorderLayout.WEST);
@@ -111,5 +115,15 @@ public class Main {
         upPanel.add(uprightPanel, BorderLayout.EAST);
         buttonPanel.add(upPanel, BorderLayout.NORTH);
         container.add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+    class addButtonEvent implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+
+            JDialog dialog = new JDialog();
+            dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            dialog.setSize(180, 90);
+
+        }
     }
 }
