@@ -34,4 +34,27 @@
 				 DOB="15.01.1998" DER="13.10.2019" resume="здоров">
 		</patient>
 	</medic>
+	<medic medicName="евгений " medicSecondName="петров " medicSurname="гринилов ">
+		<patient name="олег " secondName="шуневич " surname="боварский " street="украинки " house ="234"
+				 DOB="06.01.1999" DER="02.12.2019" resume="здоров">
+		</patient>
+		<patient name="сергей " secondName="иванович " surname="зингер " street="украинки " house ="512"
+				 DOB="08.01.2000" DER="13.05.2019" resume="здоров">
+		</patient>
+		<patient name="александр " secondName="константинович " surname="кинитин " street="радиальная " house ="52"
+				 DOB="31.01.1999" DER="31.03.2019" resume="болен">
+		</patient>
+		<patient name="пётр " secondName="евгеневич " surname="ермольев " street="ваупшасова " house ="24"
+				 DOB="06.01.1999" DER="22.04.2019" resume="болен">
+		</patient>
+		<patient name="валентин " secondName="николаевич " surname="домин " street="антоновская " house ="13"
+				 DOB="15.01.1998" DER="13.10.2019" resume="здоров">
+		</patient>
+		<patient name="кирил " secondName="евгеневич " surname="ермольев " street="ваупшасова " house ="24"
+				 DOB="06.01.1999" DER="22.04.2019" resume="болен">
+		</patient>
+		<patient name="данил " secondName="николаевич " surname="кирилов " street="антоновская " house ="13"
+				 DOB="15.01.1998" DER="13.10.2019" resume="болен">
+		</patient>
+	</medic>
 </patients>

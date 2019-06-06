@@ -3,9 +3,10 @@ package com.company;
 public class Pacient {
     private String name, street, secondName, surname, DOB, DER, resume;
     private int house;
+    private Medic medic;
 
     public Pacient(String name, String secondName, String surname, String street,
-                    int house, String DOB, String DER,String resume) {
+                   int house, String DOB, String DER,String resume) {
         this.name = name;
         this.secondName = secondName;
         this.surname = surname;
@@ -38,6 +39,13 @@ public class Pacient {
 
     public String getAddress() { return (getStreet() + getHouse()); }
 
+    public void setMedic(Medic medic) {
+        this.medic = medic;
     }
+
+    public Medic getMedic() {
+        return medic;
+    }
+}
 
 
